@@ -263,6 +263,63 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Light theme overrides */
+        body {
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+        .header {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .breadcrumb {
+            color: #6b7280;
+        }
+
+        .btn-back {
+            background: #f3f4f6;
+            color: #374151;
+            border: 1px solid #d1d5db;
+        }
+
+        .btn-back:hover {
+            background: #e5e7eb;
+        }
+
+        .form-section,
+        .form-actions {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .form-group label {
+            color: #374151;
+        }
+
+        .form-control {
+            background: #ffffff;
+            border-color: #e5e7eb;
+            color: #111827;
+        }
+
+        .form-control:focus {
+            background: #ffffff;
+        }
+
+        .form-control::placeholder {
+            color: #9ca3af;
+        }
+
+        .form-control:read-only {
+            background: #f9fafb;
+        }
+
+        #map {
+            border-color: #e5e7eb;
+        }
     </style>
 </head>
 <body>
@@ -284,7 +341,7 @@
                 </a>
             </div>
             <div class="breadcrumb">
-                <a href="{{ route('dashboard') }}">Dashboard</a> /
+                <a href="{{ route('admin.dashboard') }}">Dashboard</a> /
                 <a href="{{ route('admin.tempat-makan.index') }}">Tempat Makan</a> /
                 Tambah Baru
             </div>

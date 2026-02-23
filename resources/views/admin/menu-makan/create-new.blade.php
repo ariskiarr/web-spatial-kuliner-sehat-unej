@@ -323,6 +323,64 @@
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
+
+        /* Light theme overrides */
+        body {
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+        .header,
+        .form-container {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .breadcrumb {
+            color: #6b7280;
+        }
+
+        .form-group label {
+            color: #374151;
+        }
+
+        .form-group input {
+            background: #ffffff;
+            border-color: #e5e7eb;
+            color: #111827;
+        }
+
+        .form-group input::placeholder {
+            color: #9ca3af;
+        }
+
+        .info-box {
+            background: #f9fafb;
+            border-color: #e5e7eb;
+        }
+
+        .info-box ul {
+            color: #6b7280;
+        }
+
+        .estimated-result {
+            background: #f9fafb;
+        }
+
+        .form-actions {
+            border-top-color: #e5e7eb;
+        }
+
+        .btn-cancel {
+            background: #f3f4f6;
+            color: #374151;
+            border-color: #d1d5db;
+        }
+
+        .btn-cancel:hover {
+            background: #e5e7eb;
+            border-color: #9ca3af;
+        }
     </style>
 </head>
 <body>

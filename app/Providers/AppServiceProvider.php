@@ -9,6 +9,14 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
+    use Illuminate\Support\Facades\URL;
+
+public function boot(): void
+{
+    if (app()->environment('production')) {
+        URL::forceScheme('https');
+    }
+}
     public function register(): void
     {
         //

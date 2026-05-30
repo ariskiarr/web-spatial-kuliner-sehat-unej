@@ -39,6 +39,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => 'user', // Set default role as user
         ]);
 
         event(new Registered($user));
@@ -51,5 +52,6 @@ class RegisteredUserController extends Controller
         }
         
         return redirect()->route('user.tempat-makan.index');
+
     }
 }

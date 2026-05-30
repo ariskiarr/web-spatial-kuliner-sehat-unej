@@ -28,6 +28,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+
         $user = Auth::user();
         
         // Force flush any pending redirects
@@ -42,6 +43,9 @@ class AuthenticatedSessionController extends Controller
         }
         
         return redirect('/user/tempat-makan');
+
+        // Redirect based on user role
+     
     }
 
     /**

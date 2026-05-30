@@ -9,9 +9,9 @@ use App\Models\kategori;
 class DashboardController extends Controller
 {
     /**
-     * Display the dashboard with map
+     * Display the admin dashboard with map
      */
-    public function index()
+    public function adminDashboard()
     {
         // Get all tempat_makan with coordinates and jam operasional
         $tempatMakan = DB::table('tempat_makan')
@@ -32,6 +32,14 @@ class DashboardController extends Controller
         // Get all categories for filter
         $categories = kategori::all();
 
-        return view('dashboard-new', compact('tempatMakan', 'categories'));
+        return view('admin.dashboard-admin', compact('tempatMakan', 'categories'));
+    }
+
+    /**
+     * Display the user dashboard
+     */
+    public function userDashboard()
+    {
+        return view('dashboard-user');
     }
 }

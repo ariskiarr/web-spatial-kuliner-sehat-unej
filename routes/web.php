@@ -5,13 +5,16 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\TempatMakanController;
 use App\Http\Controllers\Admin\MenuMakanController;
 use App\Http\Controllers\DashboardController;
+
 use App\Http\Controllers\User\TempatMakanController as UserTempatMakanController;
+
 use App\Http\Controllers\User\FavoriteController;
 use App\Http\Controllers\User\ReviewController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
+
     if (Auth::check()) {
         $user = Auth::user();
         if ($user->role === 'admin') {
@@ -70,6 +73,23 @@ Route::middleware(['auth'])->get('/admin/dashboard', function () {
     return view('admin.dashboard-admin', compact('tempatMakan', 'categories'));
 })->name('admin.dashboard');
 
+
+Route::get('/dashboard-user', [DashboardUserController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard.user');
+
+Route::middleware('auth')->prefix('user')->name('user.')->group(function () {
+    // Detail tempat makan
+    Route::get('/tempat-makan/{id}', [TempatMakanDetailController::class, 'show'])->name('tempat.show');
+
+    // Favorites
+    Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorites');
+    Route::post('/tempat-makan/{id}/favorite', [FavoriteController::class, 'toggle'])->name('favorite.toggle');
+
+    // Reviews
+    Route::post('/tempat-makan/{id}/review', [ReviewController::class, 'store'])->name('review.store');
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -79,6 +99,8 @@ Route::middleware('auth')->group(function () {
 // Admin Routes
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('tempat-makan', TempatMakanController::class);
+
+
     // Menu Makan Routes (nested under tempat-makan)
     Route::get('tempat-makan/{tempat_id}/menu', [MenuMakanController::class, 'index'])->name('menu-makan.index');
     Route::get('tempat-makan/{tempat_id}/menu/create', [MenuMakanController::class, 'create'])->name('menu-makan.create');
@@ -90,6 +112,7 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // API for calorie estimation
     Route::post('menu/estimate-kalori', [MenuMakanController::class, 'getCalorieEstimate'])->name('menu.estimate-kalori');
 });
+
 
 // User Routes - Tempat Makan Features
 Route::middleware('auth')->prefix('user')->name('user.')->group(function () {
@@ -116,6 +139,7 @@ Route::middleware('auth')->prefix('user')->name('user.')->group(function () {
     Route::put('/reviews/{id}', [ReviewController::class, 'update'])->name('reviews.update');
     Route::delete('/reviews/{id}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
     Route::get('/reviews/tempat-makan/{tempatMakanId}', [ReviewController::class, 'getReviews'])->name('reviews.get');
+
 });
 
 require __DIR__.'/auth.php';

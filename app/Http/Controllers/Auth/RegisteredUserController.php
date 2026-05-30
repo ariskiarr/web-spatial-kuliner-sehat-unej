@@ -46,7 +46,12 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        // Redirect to user dashboard
-        return redirect()->route('dashboard.user');
+        // Direct redirect based on role
+        if ($user->role === 'admin') {
+            return redirect()->route('admin.dashboard');
+        }
+        
+        return redirect()->route('user.tempat-makan.index');
+
     }
 }

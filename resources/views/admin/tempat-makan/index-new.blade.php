@@ -383,6 +383,108 @@
             color: #1a1a1a;
             border-color: white;
         }
+
+        /* Light theme overrides */
+        body {
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+        .header {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .breadcrumb {
+            color: #6b7280;
+        }
+
+        .btn-back {
+            background: #f3f4f6;
+            color: #374151;
+            border: 1px solid #d1d5db;
+        }
+
+        .btn-back:hover {
+            background: #e5e7eb;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            box-shadow: 0 4px 12px rgba(59,130,246,0.3);
+        }
+
+        .stat-card,
+        .table-container {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .stat-label {
+            color: #6b7280;
+        }
+
+        .search-input {
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            color: #111827;
+        }
+
+        .search-input::placeholder {
+            color: #9ca3af;
+        }
+
+        table {
+            background: #ffffff;
+        }
+
+        thead {
+            background: #f9fafb;
+        }
+
+        thead th {
+            color: #6b7280;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        tbody tr:hover {
+            background: #f9fafb;
+        }
+
+        .empty-state svg {
+            color: #9ca3af;
+        }
+
+        .empty-state p {
+            color: #6b7280;
+        }
+
+        .pagination a,
+        .pagination span {
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            color: #374151;
+        }
+
+        .pagination a:hover {
+            background: #3b82f6;
+            border-color: #3b82f6;
+            color: white;
+        }
+
+        .pagination .active {
+            background: #3b82f6;
+            border-color: #3b82f6;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -395,11 +497,11 @@
                     Kelola Tempat Makan
                 </h1>
                 <div class="breadcrumb">
-                    <a href="{{ route('dashboard') }}">Dashboard</a> / Tempat Makan
+                    <a href="{{ route('admin.dashboard') }}">Dashboard</a> / Tempat Makan
                 </div>
             </div>
             <div class="header-actions">
-                <a href="{{ route('dashboard') }}" class="btn btn-back">
+                <a href="{{ route('admin.dashboard') }}" class="btn btn-back">
                     <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/>
                     </svg>

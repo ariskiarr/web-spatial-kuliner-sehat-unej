@@ -344,6 +344,71 @@
             font-size: 12px;
             color: #888;
         }
+
+        /* Light theme overrides */
+        body {
+            background: #f3f4f6;
+            color: #111827;
+        }
+
+        .header {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .breadcrumb,
+        .restaurant-info,
+        .menu-meta {
+            color: #6b7280;
+        }
+
+        .btn-back {
+            background: #f3f4f6;
+            color: #374151;
+            border: 1px solid #d1d5db;
+        }
+
+        .btn-back:hover {
+            background: #e5e7eb;
+        }
+
+        .stat-card,
+        .table-container {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .stat-label {
+            color: #6b7280;
+        }
+
+        table {
+            background: #ffffff;
+        }
+
+        thead {
+            background: #f9fafb;
+        }
+
+        thead th {
+            color: #6b7280;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        tbody tr:hover {
+            background: #f9fafb;
+        }
+
+        .empty-state svg {
+            color: #9ca3af;
+        }
+
+        .empty-state p {
+            color: #6b7280;
+        }
     </style>
 </head>
 <body>
